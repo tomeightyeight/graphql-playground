@@ -4,7 +4,9 @@
       <li 
         v-for="user in allUsers" 
         :key="user.email">
-        {{ user.email }}
+        <a :href="`mailto:${ user.email }`">
+          {{ user.firstName }}&nbsp;{{ user.lastName }}
+        </a>
       </li>
     </ul>
   </div>
@@ -28,6 +30,8 @@ export default {
     allUsers: gql`{
       allUsers {
         email
+        firstName
+        lastName
       }
     }`
   }
