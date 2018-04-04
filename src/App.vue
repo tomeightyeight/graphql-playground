@@ -25,13 +25,11 @@ export default {
   },
 
   apollo: {
-    users: gql`
-      {
-        allUsers {
-          email
-        }
+    users: gql`{
+      allUsers {
+        email
       }
-    `
+    }`
   }
 }
 </script>
