@@ -21,7 +21,12 @@ const apolloClient = new ApolloClient({
 // Install the vue plugin
 Vue.use(VueApollo)
 
+const apolloProvider = new VueApollo({
+  defaultClient: apolloClient,
+})
+
 new Vue({
   el: '#app',
+  provide: apolloProvider.provide(),
   render: h => h(App)
 })
