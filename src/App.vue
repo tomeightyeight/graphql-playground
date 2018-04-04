@@ -1,5 +1,10 @@
 <template type="text/html">
   <div id="app">
+    <input 
+      v-model="id" 
+      type="text" 
+      class="query__input" />
+
     <div v-if="$apollo.loading">Loading...</div>
 
     <div v-else>
@@ -38,8 +43,10 @@ const userQuery = {
       lastName
     }
   }`,
-  variables: {
-    id: 1
+  variables () {
+    return {
+      id: this.id
+    }
   }
 }
 
@@ -48,6 +55,7 @@ export default {
 
   data () {
     return {
+      id: 1,
       User: {
         //
       },
