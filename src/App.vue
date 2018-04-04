@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <ul>
-      <li v-for="user in users" :key="user.email">
+      <li 
+        v-for="user in users" 
+        :key="user.email">
         {{ user.email }}
       </li>
     </ul>
@@ -9,15 +11,27 @@
 </template>
 
 <script>
+import gql from 'graphql-tag'
+
 export default {
   name: 'app',
-  
+
   data () {
     return {
       users: [
         //
       ]
     }
+  },
+
+  apollo: {
+    users: gql`
+      {
+        allUsers {
+          email
+        }
+      }
+    `
   }
 }
 </script>
