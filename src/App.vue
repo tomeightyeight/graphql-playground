@@ -28,7 +28,7 @@ const allUsersQuery = gql`{
 }`
 
 const userQuery = {
-  query: gql`query getUser($id: ID!) {
+  query: gql`query userQuery($id: ID!) {
     User(id: $id) {
       firstName
       lastName
