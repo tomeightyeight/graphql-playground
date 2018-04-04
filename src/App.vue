@@ -1,15 +1,22 @@
 <template>
   <div id="app">
-    {{ msg }}
+    <ul>
+      <li v-for="user in users" :key="user.email">
+        {{ user.email }}
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
 export default {
   name: 'app',
+  
   data () {
     return {
-      msg: 'Hello, World!'
+      users: [
+        //
+      ]
     }
   }
 }
