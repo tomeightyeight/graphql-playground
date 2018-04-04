@@ -2,7 +2,7 @@
   <div id="app">
     <ul>
       <li 
-        v-for="user in users" 
+        v-for="user in allUsers" 
         :key="user.email">
         {{ user.email }}
       </li>
@@ -18,14 +18,14 @@ export default {
 
   data () {
     return {
-      users: [
+      allUsers: [
         //
       ]
     }
   },
 
   apollo: {
-    users: gql`{
+    allUsers: gql`{
       allUsers {
         email
       }
