@@ -5,7 +5,9 @@
       type="text" 
       class="query__input" />
 
-    <div v-if="$apollo.loading">Loading...</div>
+    <div v-if="$apollo.loading">
+        Loading...
+    </div>
 
     <div v-else>
       <pre v-html="User"></pre>
