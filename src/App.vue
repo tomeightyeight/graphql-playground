@@ -30,7 +30,7 @@
 <script>
 import gql from 'graphql-tag'
 
-const allUsersQuery = gql`{
+const allUsersQuery = gql`query allUsersQuery {
   allUsers {
     email
     firstName
