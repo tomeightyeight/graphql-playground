@@ -1,5 +1,9 @@
-<template>
+<template type="text/html">
   <div id="app">
+    <pre v-html="User"></pre>
+    
+    <pre v-html="allUsers"></pre>
+
     <ul>
       <li 
         v-for="user in allUsers" 
@@ -15,11 +19,34 @@
 <script>
 import gql from 'graphql-tag'
 
+const allUsersQuery = gql`{
+  allUsers {
+    email
+    firstName
+    lastName
+  }
+}`
+
+const userQuery = {
+  query: gql`query getUser($id: ID!) {
+    User(id: $id) {
+      firstName
+      lastName
+    }
+  }`,
+  variables: {
+    id: 1
+  }
+}
+
 export default {
   name: 'app',
 
   data () {
     return {
+      User: {
+        //
+      },
       allUsers: [
         //
       ]
@@ -27,42 +54,8 @@ export default {
   },
 
   apollo: {
-    allUsers: gql`{
-      allUsers {
-        email
-        firstName
-        lastName
-      }
-    }`
+    User: userQuery,
+    allUsers: allUsersQuery
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
-</style>
