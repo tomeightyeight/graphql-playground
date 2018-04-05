@@ -13,16 +13,6 @@
       <pre v-html="User"></pre>
       
       <pre v-html="allUsers"></pre>
-
-      <ul>
-        <li 
-          v-for="user in allUsers" 
-          :key="user.email">
-          <a :href="`mailto:${ user.email }`">
-            {{ user.firstName }}&nbsp;{{ user.lastName }}
-          </a>
-        </li>
-      </ul>
     </div>
   </div>
 </template>
