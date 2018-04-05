@@ -6,7 +6,7 @@
       class="query__input" />
 
     <div v-if="$apollo.loading">
-        Loading...
+      Loading...
     </div>
 
     <div v-else>
